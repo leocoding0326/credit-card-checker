@@ -42,6 +42,9 @@ const validateCred = array => {
 return digitTotal % 10 === 0
 }
 
+//Segregate wrong numbers and return them in a new array
 
-
+const findInvalidCards = nestedArray => {
+  return nestedArray.filter(num => !validateCred(num))
+}
 
