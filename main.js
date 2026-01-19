@@ -48,3 +48,34 @@ const findInvalidCards = nestedArray => {
   return nestedArray.filter(num => !validateCred(num))
 }
 
+//Checks wich Companies issued the wrong numbers
+
+const idInvalidCardCompanies = invalidNumbers => {
+  let invalidCompanies = []
+  for (let i = 0; i < invalidNumbers.length; i++) {
+    switch (invalidNumbers[i][0]) {
+      case 3:
+      if (invalidCompanies.indexOf('Amex') === -1) {
+        invalidCompanies.push('Amex');
+      }
+      break;
+      case 4:
+      if (invalidCompanies.indexOf('Visa') === -1) {
+        invalidCompanies.push('Visa');
+      }
+      break;
+      case 5:
+      if (invalidCompanies.indexOf('Mastercard') === -1) {
+        invalidCompanies.push('Mastercard');
+      }
+      break;
+      case 6:
+      if (invalidCompanies.indexOf('Discover') === -1) {
+        invalidCompanies.push('Discover');
+      }
+      break;
+      default: console.log('Company not found');
+    }
+  }
+  return invalidCompanies;
+}
